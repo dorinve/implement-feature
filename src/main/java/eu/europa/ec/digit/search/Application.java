@@ -2,7 +2,9 @@ package eu.europa.ec.digit.search;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +31,11 @@ public class Application implements CommandLineRunner {
 	protected String sortMyString(String unsortedString) {
 
 		List<String> list = Arrays.asList(unsortedString.split(" "));
-		Collections.sort(list);
-		return list.get(0) + " " + list.get(1) + " " + list.get(2) + " " + list.get(4) + " " + list.get(5) + " " + list.get(6) + " " + list.get(7) + " " + list.get(8);
-
+		//Collections.sort(list);
+		list.sort(Comparator.naturalOrder());
+		return list.get(0) + " " + list.get(1) + " " + list.get(2) + " " + list.get(3) + " " + list.get(4) + " " + list.get(5) + " " + list.get(6) + " " + list.get(7) + " " + list.get(8);
+		//the quick brown fox jumps over the lazy dog
+		//brown dog fox jumps lazy over quick the the
 	}
 
 	protected List<String> removeDuplicatesFromList(List<String> values) {
